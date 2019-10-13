@@ -1,0 +1,29 @@
+{% extends "pmpapp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Register:</h1>
+    {% if registered %}
+
+      <h1>Thank you for registering!</h1>
+
+    {% else %}
+
+      <h3>Just fill out the form.</h3>
+
+      <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{ loginForm.as_p }}
+        {{ registerForm.as_p }}
+        <input type="submit" name="" value="Register">
+      </form>
+
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}
